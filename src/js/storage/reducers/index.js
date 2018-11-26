@@ -3,7 +3,7 @@ const initState = {
     users: []
 };
 
-const rootReducer = (state = initState, action) => {
+const rootReducer = (state = initState, action = {}) => {
     switch (action.type) {
         case USER_INFO:
             return { ...state, users: [...state.users, action.payload] };

@@ -3,10 +3,10 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import App from '../js/components/containers/App.jsx';
 import store from './storage/store/index';
-import { userLogin } from './actions/login';
+import { addUser } from './actions/users';
 
 window.store = store;
-window.userLogin = userLogin;
+window.userLogin = addUser;
 store.subscribe(() => console.log('Redux!!'))
 
 ReactDOM.render(

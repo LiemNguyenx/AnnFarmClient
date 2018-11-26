@@ -1,33 +1,23 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
+import List from '../users/List.jsx'
+import ConnectedForm from '../users/Form.jsx'
 const mapStateToProps = state => {
    return { users: state.users }
 }
-class App extends Component{
-   constructor(users){
-      super(users);
-   }
-   render(){
-      return(
+class App extends Component {
+   render() {
+      return (
          <div>
-            {
-               this.props.users.map(
-                  (e,index) => (
-                     <div key={index}>
-                        ID: {e}
-                     </div>
-                  )
-               )
-            }
+            <div>
+               <List />
+            </div>
+            <div>
+               <ConnectedForm />
+            </div>
          </div>
       );
    }
 }
-// const App = ({ users }) => (
-//    <div>
-//       Id: {users[0]}
-//       Pass: {users[0]}
-//    </div>
-// )
+
 export default connect(mapStateToProps)(App);

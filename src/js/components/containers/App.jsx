@@ -1,11 +1,33 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
+const mapStateToProps = state => {
+   return { users: state.users }
+}
 class App extends Component{
+   constructor(users){
+      super(users);
+   }
    render(){
       return(
          <div>
-            <h1>Hello World</h1>
+            {
+               this.props.users.map(
+                  (e,index) => (
+                     <div key={index}>
+                        ID: {e}
+                     </div>
+                  )
+               )
+            }
          </div>
       );
    }
 }
-export default App;
+// const App = ({ users }) => (
+//    <div>
+//       Id: {users[0]}
+//       Pass: {users[0]}
+//    </div>
+// )
+export default connect(mapStateToProps)(App);

@@ -6,7 +6,7 @@ import store from './storage/store/index';
 import { addUser } from './actions/users';
 
 window.store = store;
-window.userLogin = addUser;
+window.addUser = addUser;
 store.subscribe(() => console.log('Redux!!'))
 
 ReactDOM.render(

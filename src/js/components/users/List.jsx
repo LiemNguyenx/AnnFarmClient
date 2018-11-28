@@ -7,16 +7,15 @@ const mapStateToProps = state => {
 class ConnectedList extends Component {
     render() {
         return (
-            <div>
+            <ul className="list-group">
                 {this.props.users.map(
                     (e, index) => (
-                        <div key={index}>
-                            ID: {e.id}
-                            Pass: {e.pass}
-                        </div>
+                        <li className="list-group-item text-center" key={index}>
+                            ID: {e.id} - Pass: {e.pass}
+                        </li>
                     )
                 )}
-            </div>
+            </ul>
         )
     }
 }

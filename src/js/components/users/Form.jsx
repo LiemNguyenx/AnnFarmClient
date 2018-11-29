@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addUser } from '../../actions/users.js'
+import { addUser } from '../../actions/users.action.js'
 
 const mapDispatchToProps = dispatch => {
     return {

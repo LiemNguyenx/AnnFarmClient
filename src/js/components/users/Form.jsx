@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addUser } from '../../actions/users.action.js'
+import { withRouter } from 'react-router-dom'
 
 const mapDispatchToProps = dispatch => {
     return {
@@ -41,4 +42,5 @@ class ConnectedForm extends Component {
     }
 }
 
-export default connect(null, mapDispatchToProps)(ConnectedForm);
+export default withRouter(connect(null, mapDispatchToProps)(ConnectedForm));
+// export default ConnectedForm;

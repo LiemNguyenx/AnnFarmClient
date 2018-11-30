@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+// import List from '../users/List.jsx'
+import Login from '../users/Login.jsx'
+import Form from '../users/Form.jsx'
+import { Route, Link } from 'react-router-dom';
 import { withRouter } from 'react-router-dom'
-import List from '../users/List.jsx'
-import ConnectedForm from '../users/Form.jsx'
 
 const mapStateToProps = state => {
    return { users: state.users }
@@ -13,12 +15,10 @@ class App extends Component {
       return (
          <div className="container">
             <div>
-               <div>
-                  <List />
-               </div><br/><br/>
-               <div>
-                  <ConnectedForm />
-               </div>
+               <Link to="/login/">Login</Link>
+
+               <Route exact path='/' component={Form} />
+               <Route path='/login/' component={Login} />
             </div>
          </div>
       );
@@ -26,3 +26,31 @@ class App extends Component {
 }
 
 export default withRouter(connect(mapStateToProps)(App));
+
+// const Index = () => <h2>Home</h2>;
+// const About = () => <h2>About</h2>;
+// const Users = () => <h2>Users</h2>;
+
+// const App = () => (
+//     <div>
+//       <nav>
+//         <ul>
+//           <li>
+//             <Link to="/">Home</Link>
+//           </li>
+//           <li>
+//             <Link to="/about/">About</Link>
+//           </li>
+//           <li>
+//             <Link to="/users/">Users</Link>
+//           </li>
+//         </ul>
+//       </nav>
+
+//       <Route path="/" exact component={Index} />
+//       <Route path="/about/" component={About} />
+//       <Route path="/users/" component={Users} />
+//     </div>
+
+// );
+// export default App;

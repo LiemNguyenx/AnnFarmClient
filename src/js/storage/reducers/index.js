@@ -12,7 +12,7 @@ const rootReducer = (state = initState, action = {}) => {
                 return { ...state, users: [...state.users, action.payload] };
             }
         case USER_LOGIN:
-            debugger
+            //  debugger
             if (action.payload.id && action.payload.pass) {
                 return { ...state, users: [...state.users, action.payload] };
             }

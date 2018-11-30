@@ -15,8 +15,6 @@ class App extends Component {
       return (
          <div className="container">
             <div>
-               <Link to="/login/">Login</Link>
-
                <Route exact path='/' component={Form} />
                <Route path='/login/' component={Login} />
             </div>

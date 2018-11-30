@@ -2,12 +2,17 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addUser } from '../../actions/users.action.js'
 import { withRouter } from 'react-router-dom'
+import {Link} from 'react-router-dom'
 
 const mapDispatchToProps = dispatch => {
     return {
         addUser: info => dispatch(addUser(info))
     }
 }
+const mapStateToProps = state => {
+    return { users: state.users }
+}
+
 class ConnectedForm extends Component {
     constructor() {
         super();
@@ -29,18 +34,31 @@ class ConnectedForm extends Component {
 
     render() {
         return (
-            <form onSubmit={this.handleSubmit}>
-                <div className="form-row">
-                    <input type="text" id="id" className="form-control" placeholder="ID" onChange={this.handleChange} /><br />
-                </div>
-                <div className="form-row">
-                    <input type="password" id="pass"  className="form-control" placeholder="Password" onChange={this.handleChange} />
-                </div>
-                <button type="submit" className="btn btn-primary">ADD</button>
-            </form>
+            <div>
+                <ul className="list-group">
+                    {this.props.users.map(
+                        (e, index) => (
+                            <li className="list-group-item text-center" key={index}>
+                                ID: {e.id} - Pass: {e.pass}
+                            </li>
+                        )
+                    )}
+                </ul>
+                <form onSubmit={this.handleSubmit}>
+                    <div className="form-row">
+                        <input type="text" id="id" className="form-control" placeholder="ID" onChange={this.handleChange} /><br />
+                    </div>
+                    <div className="form-row">
+                        <input type="password" id="pass" className="form-control" placeholder="Password" onChange={this.handleChange} />
+                    </div>
+                    <button type="submit" className="btn btn-primary">ADD</button>
+                    <Link to="/login/">Login</Link>
+
+                </form>
+            </div>
         );
     }
 }
 
-export default withRouter(connect(null, mapDispatchToProps)(ConnectedForm));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ConnectedForm));
 // export default ConnectedForm;

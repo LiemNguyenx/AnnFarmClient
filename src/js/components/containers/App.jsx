@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-// import List from '../users/List.jsx'
 import Login from '../users/Login.jsx'
 import Form from '../users/Form.jsx'
-import { Route, Link } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import { withRouter } from 'react-router-dom'
+import  PrivateRoute  from './../PrivateRoute.jsx';
+
 
 const mapStateToProps = state => {
-   return { users: state.users }
+   return state 
 }
 
 class App extends Component {
@@ -15,7 +16,7 @@ class App extends Component {
       return (
          <div className="container">
             <div>
-               <Route exact path='/' component={Form} />
+               <PrivateRoute exact path="/" component={Form} />
                <Route path='/login/' component={Login} />
             </div>
          </div>
@@ -45,8 +46,8 @@ export default withRouter(connect(mapStateToProps)(App));
 //         </ul>
 //       </nav>
 
-//       <Route path="/" exact component={Index} />
-//       <Route path="/about/" component={About} />
+//       <Route path="/" exact component={About} />
+//       <Route path="/about/" component={Index} />
 //       <Route path="/users/" component={Users} />
 //     </div>
 

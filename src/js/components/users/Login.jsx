@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { userLogin } from '../../actions/users.action.js'
+// import { login } from '../../actions/users.action.js'
 import { withRouter } from 'react-router-dom'
+import { userService } from './../../services/user.service';
 
 const mapDispatchToProps = dispatch => {
     return {
-        userLogin: info => dispatch(userLogin(info))
+        login: info => dispatch(userService.login(info))
     }
 
 }

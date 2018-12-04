@@ -1,4 +1,4 @@
-import { USER_INFO, USER_LOGIN } from '../../constants/action_type.js'
+import { USER_INFO, LOGIN_REQUEST } from '../../constants/action_type.js'
 const initState = {
     users: []
 };
@@ -11,7 +11,7 @@ const rootReducer = (state = initState, action = {}) => {
             if (action.payload.id && action.payload.pass) {
                 return { ...state, users: [...state.users, action.payload] };
             }
-        case USER_LOGIN:
+        case LOGIN_REQUEST:
             //  debugger
             if (action.payload.id && action.payload.pass) {
                 return { ...state, users: [...state.users, action.payload] };

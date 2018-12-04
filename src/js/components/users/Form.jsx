@@ -40,7 +40,7 @@ class ConnectedForm extends Component {
                         (e, index) => (
                             <li className="list-group-item text-center" key={index}>
                                 ID: {e.id} - Pass: {e.pass}
-                            </li>
+                            </li> 
                         )
                     )}
                 </ul>

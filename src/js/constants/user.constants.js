@@ -1,6 +1,6 @@
 export const url= {
-    'apiDomain': '192.168.1.119:5001/',
-    'authUrl' : 'api/User/Authenticate'
+    'apiDomain': '192.168.1.119/',
+    'authUrl' : 'api/Account/Authenticate'
 }
 export const userContants ={
     LOGIN_REQUEST : 'USER_LOGIN_REQUEST',

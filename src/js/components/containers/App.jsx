@@ -16,8 +16,8 @@ class App extends Component {
       return (
          <div className="container">
             <div>
-               <PrivateRoute exact path="/" component={Form} />
-               <Route path='/login/' component={Login} />
+               {/* <PrivateRoute exact path="/" component={Form} /> */}
+               <Route path='/login' component={Login} />
             </div>
          </div>
       );

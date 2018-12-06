@@ -26,7 +26,7 @@ class Login extends Component {
     handleSubmit(event) {
         event.preventDefault();
         // debugger;
-        this.props.userLogin({ id: this.state.user_id, pass: this.state.pass });
+        this.props.login({ id: this.state.user_id, pass: this.state.pass });
         this.setState({user_id : "",password: ""});
     }
 

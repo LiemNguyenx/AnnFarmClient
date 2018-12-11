@@ -1,5 +1,5 @@
 export const url= {
-    'apiDomain': '192.168.1.119/',
+    'apiDomain': 'http://192.168.1.119/',
     'authUrl' : 'api/Account/Authenticate'
 }
 export const userContants ={

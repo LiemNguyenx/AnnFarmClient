@@ -1,5 +1,8 @@
 import { userContants } from './../../constants/user.constants';
-let info = JSON.parse(document.cookie.access_token);
+debugger
+
+// let info = JSON.parse(document.cookie);
+let info = document.cookie.access_token
 const initState = info ? { loggin: true, info } : {};
 
 export function authen(state = initState, action) {

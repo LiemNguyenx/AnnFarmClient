@@ -1,4 +1,4 @@
-import { USER_INFO, LOGIN_REQUEST } from '../../constants/action_type.js'
+import { USER_INFO, LOGIN_REQUEST } from '../../_constants/action_type.js'
 import {combineReducers} from 'redux';
 import {alert} from './alert.reducer';
 import {authen} from './authen.reducer';
@@ -26,9 +26,9 @@ function rootReducer(state = initState, action = {}) {
             return state;
     }
 };
-export default rootReducer;
-// export default rootReducer = combineReducers({
-//     alert,
-//     authen,
-//     rootReducer
-// });
+// export default rootReducer;
+export default rootReducer = combineReducers({
+    alert,
+    authen,
+    rootReducer
+});

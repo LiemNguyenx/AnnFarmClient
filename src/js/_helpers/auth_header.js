@@ -1,3 +1,4 @@
+import { get_cookie } from 'cookie';
 export function authHeader() {
     let token = JSON.parse(document.cookie.access_token);
     if (token) {

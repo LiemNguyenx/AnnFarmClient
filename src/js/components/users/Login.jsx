@@ -2,17 +2,19 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 // import { login } from '../../actions/users.action.js'
 import { withRouter } from 'react-router-dom'
-import { userService } from './../../services/user.service';
+import { userService } from './../../_services/user.service';
 
 const mapDispatchToProps = dispatch => {
     return {
         login: info => dispatch(userService.login(info))
+        // login: info => dispatch({ type: 'USERS_LOGIN_SUCCESS', userInfo: info })
     }
 
 }
 class Login extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
+
         this.state = {
             user_id: "",
             pass: ""
@@ -26,6 +28,7 @@ class Login extends Component {
     handleSubmit(event) {
         event.preventDefault();
         this.props.login({ LoginUser: this.state.LoginUser, LoginPass: this.state.LoginPass });
+        // dispatch(userService.login({ LoginUser: this.state.LoginUser, LoginPass: this.state.LoginPass }));
         this.setState({LoginUser : "",LoginPass: ""});
     }
 

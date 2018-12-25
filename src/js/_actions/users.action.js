@@ -1,5 +1,5 @@
-import { LOGIN_REQUEST, USER_INFO } from '../constants/action_type.js'
-import { userService } from '../services/user.service';
+import { LOGIN_REQUEST, USER_INFO } from '../_constants/action_type.js'
+import { userService } from '../_services/user.service';
 // import { userService } from './../services/user.service';
 import { alertAction } from './alert.action';
 

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addUser } from '../../actions/users.action.js'
+import { addUser } from '../../_actions/users.action.js'
 import { withRouter } from 'react-router-dom'
 import {Link} from 'react-router-dom'
 

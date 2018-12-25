@@ -1,11 +1,17 @@
-import { USER_INFO, LOGIN_REQUEST } from '../../constants/action_type.js'
+import { USER_INFO, LOGIN_REQUEST } from '../../_constants/action_type.js'
+import {combineReducers} from 'redux';
+import {alert} from './alert.reducer';
+import {authen} from './authen.reducer';
+
 const initState = {
-    users: []
+    user: {},
+    isLogin: false,
+    errorMessage:[]
 };
 
-const rootReducer = (state = initState, action = {}) => {
+function rootReducer(state = initState, action = {}) {
     switch (action.type) {
-
+        // case 
         case USER_INFO:
             // debugger;
             if (action.payload.id && action.payload.pass) {
@@ -20,5 +26,9 @@ const rootReducer = (state = initState, action = {}) => {
             return state;
     }
 };
-
-export default rootReducer;
+// export default rootReducer;
+export default rootReducer = combineReducers({
+    alert,
+    authen,
+    rootReducer
+});

@@ -10,6 +10,7 @@ import TopNavbar from './menu/top-navbar.jsx';
 import MainPanel from './containers/main-panel.jsx'
 import './assets/css/material-dashboard.min.css'
 import './assets/css/meterial-icon.css'
+
 const mapStateToProps = state => {
     return state
 }
@@ -21,6 +22,7 @@ class App extends Component {
                 <LeftMenu/>
                 <MainPanel />
                 <div>
+
                     {/* <PrivateRoute exact path="/" component={Form} /> */}
                     {/* <Route path='/login' component={Login} /> */}
                 </div>

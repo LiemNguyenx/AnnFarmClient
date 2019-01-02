@@ -75,23 +75,7 @@ class Contents extends Component {
                             </div>
                         </div>
                     </div>
-<<<<<<< HEAD
-                    <div className="editor">
-                        <h2>Using CKEditor 5 Framework in React</h2>
-                        <CKEditor
-                            onInit={editor => console.log('Editor is ready to use!', editor)}
-                            onChange={(event, editor) => console.log({ event, editor })}
-                            config={{
-                                // plugins: [Essentials, Paragraph, Bold, Italic, Heading],
-                                // toolbar: ['heading', '|', 'bold', 'italic', '|', 'undo', 'redo',]
-                            }}
-                            editor={ClassicEditor}
-                            data="<p>Hello from CKEditor 5!</p>"
-                        />
-                    </div>
-=======
                     <MyEditor />
->>>>>>> e0042fd64eaf73e2157cca9f340b3cd4e2b13d5f
                 </div>
             </div>
         );

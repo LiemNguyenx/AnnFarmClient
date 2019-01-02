@@ -2,11 +2,7 @@ import React, { Component } from 'react';
 import MyEditor from '../editor/draft.js'
 // import CKEditor from '@ckeditor/ckeditor5-react';
 
-<<<<<<< HEAD
-import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
-=======
 // import ClassicEditor from '@ckeditor/ckeditor5-editor-classic/src/classiceditor';
->>>>>>> e0042fd64eaf73e2157cca9f340b3cd4e2b13d5f
 // import Essentials from '@ckeditor/ckeditor5-essentials/src/essentials';
 // import Paragraph from '@ckeditor/ckeditor5-paragraph/src/paragraph';
 // import Bold from '@ckeditor/ckeditor5-basic-styles/src/bold';

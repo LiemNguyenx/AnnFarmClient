@@ -1,7 +1,12 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
+<<<<<<< HEAD
 var UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+=======
+// const UglifyJsWebpackPlugin = require('uglifyjs-webpack-plugin');
+>>>>>>> e0042fd64eaf73e2157cca9f340b3cd4e2b13d5f
 const path = require('path');
-const { styles } = require('@ckeditor/ckeditor5-dev-utils');
+// const { styles } = require('@ckeditor/ckeditor5-dev-utils');
+
 
 module.exports = {
     // entry: './src/js/index.js',
@@ -18,7 +23,7 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.(js|jsx)?$/,
+                test: /\.(js|jsx|cjs)?$/,
                 exclude: /node_modules/,
                 loader: 'babel-loader',
                 query: {
@@ -28,48 +33,8 @@ module.exports = {
             {
                 test: /\.css$/,
                 use: ['style-loader', 'css-loader'],
-                exclude: /ckeditor5-[^/\\]+[/\\]theme[/\\].+\.css/
-            },
-            {
-                test: /ckeditor5-[^/\\]+[/\\]theme[/\\]icons[/\\][^/\\]+\.svg$/,
-                use: ['raw-loader']
-            },
-            {
-                test: /ckeditor5-[^/\\]+[/\\]theme[/\\].+\.css/,
-                use: [
-                    {
-                        loader: 'style-loader',
-                        options: {
-                            singleton: true
-                        }
-                    },
-                    {
-                        loader: 'postcss-loader',
-                        options: styles.getPostCssConfig({
-                            themeImporter: {
-                                themePath: require.resolve('@ckeditor/ckeditor5-theme-lark')
-                            },
-                            minify: true
-                        })
-                    }
-                ]
-            },
-            {
-                loader: require.resolve('file-loader'),
-                // Exclude `js` files to keep the "css" loader working as it injects
-                // its runtime that would otherwise be processed through the "file" loader.
-                // Also exclude `html` and `json` extensions so they get processed
-                // by webpack's internal loaders.
-                exclude: [
-                    /\.(js|jsx|mjs)$/,
-                    /\.html$/,
-                    /\.json$/,
-                    /ckeditor5-[^/\\]+[/\\]theme[/\\]icons[/\\][^/\\]+\.svg$/,
-                    /ckeditor5-[^/\\]+[/\\]theme[/\\].+\.css/
-                ],
-                options: {
-                    name: 'static/media/[name].[hash:8].[ext]'
-                }
+                exclude: /ckeditor5-[^/\\]+[/\\]theme[/\\].+\.css/,
+                
             }
         ]
     },
@@ -77,6 +42,7 @@ module.exports = {
         new HtmlWebPackPlugin({
             // template: './src/index.html'
             template: './src/js/components/admin/index.html'
+<<<<<<< HEAD
         }),
         new UglifyJsPlugin({
             uglifyOptions: {
@@ -99,6 +65,8 @@ module.exports = {
                 },
             },
             // sourceMap: shouldUseSourceMap,
+=======
+>>>>>>> e0042fd64eaf73e2157cca9f340b3cd4e2b13d5f
         })
     ],
     optimization: {

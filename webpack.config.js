@@ -1,5 +1,5 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
-const UglifyJsWebpackPlugin = require('uglifyjs-webpack-plugin');
+var UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const path = require('path');
 const { styles } = require('@ckeditor/ckeditor5-dev-utils');
 
@@ -78,7 +78,7 @@ module.exports = {
             // template: './src/index.html'
             template: './src/js/components/admin/index.html'
         }),
-        new UglifyJsWebpackPlugin({
+        new UglifyJsPlugin({
             uglifyOptions: {
                 compress: {
                     warnings: false,
@@ -100,5 +100,8 @@ module.exports = {
             },
             // sourceMap: shouldUseSourceMap,
         })
-    ]
+    ],
+    optimization: {
+        minimizer: [new UglifyJsPlugin()],
+    }
 }

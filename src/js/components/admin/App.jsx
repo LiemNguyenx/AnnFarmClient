@@ -7,10 +7,11 @@ import { withRouter } from 'react-router-dom'
 import PrivateRoute from './../PrivateRoute.jsx';
 import LeftMenu from './menu/left-menu.jsx';
 import TopNavbar from './menu/top-navbar.jsx';
-import MainPanel from './containers/main-panel.jsx'
+import Contents from './containers/contents.jsx';
 import './assets/css/material-dashboard.min.css'
 import './assets/css/meterial-icon.css'
-
+import MyEditor from './editor/draft.jsx'
+import DashBoard from './dashboard/dashboard-index.jsx'
 const mapStateToProps = state => {
     return state
 }
@@ -19,12 +20,13 @@ class App extends Component {
     render() {
         return (
             <div className="wrapper">
-                <LeftMenu/>
-                <MainPanel />
-                <div>
-
-                    {/* <PrivateRoute exact path="/" component={Form} /> */}
-                    {/* <Route path='/login' component={Login} /> */}
+                <LeftMenu />
+                <div className="main-panel">
+                    <TopNavbar />
+                    <div className="content">
+                        <Route path="/dashboard" component={DashBoard} />
+                        <Route path="/post" component={MyEditor} />
+                    </div>
                 </div>
             </div>
         );

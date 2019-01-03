@@ -1,20 +1,9 @@
 import React, { Component } from 'react';
-import MyEditor from '../editor/draft.jsx'
-// import CKEditor from '@ckeditor/ckeditor5-react';
-
-// import ClassicEditor from '@ckeditor/ckeditor5-editor-classic/src/classiceditor';
-// import Essentials from '@ckeditor/ckeditor5-essentials/src/essentials';
-// import Paragraph from '@ckeditor/ckeditor5-paragraph/src/paragraph';
-// import Bold from '@ckeditor/ckeditor5-basic-styles/src/bold';
-// import Italic from '@ckeditor/ckeditor5-basic-styles/src/italic';
-// import Heading from '@ckeditor/ckeditor5-heading/src/heading';
-
-import TopNavbar from '../menu/top-navbar.jsx'
 import { connect } from 'react-redux';
 import { Route } from 'react-router-dom';
 import { withRouter } from 'react-router-dom'
 
-class Contents extends Component {
+class DashBoard extends Component {
     render() {
         return (
             <div className="content">
@@ -77,4 +66,4 @@ class Contents extends Component {
     }
 }
 
-export default Contents; 
+export default DashBoard; 

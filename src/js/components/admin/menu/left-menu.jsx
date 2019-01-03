@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Route } from 'react-router-dom';
 import { withRouter } from 'react-router-dom'
+import { Link } from "react-router-dom";
 // import PrivateRoute from './../PrivateRoute.jsx';
 
 class LeftMenu extends Component {
@@ -16,10 +16,10 @@ class LeftMenu extends Component {
                 <div className="sidebar-wrapper">
                     <ul className="nav">
                         <li className="nav-item active  ">
-                            <a className="nav-link" href="./dashboard.html">
+                            <Link  className="nav-link" to="/dashboard">
                                 <i className="material-icons">dashboard</i>
                                 <p>Dashboard</p>
-                            </a>
+                            </Link>
                         </li>
                         <li className="nav-item ">
                             <a className="nav-link" href="./user.html">
@@ -34,10 +34,10 @@ class LeftMenu extends Component {
                             </a>
                         </li>
                         <li className="nav-item ">
-                            <a className="nav-link" href="./typography.html">
+                            <Link className="nav-link" to="/post">
                                 <i className="material-icons">library_books</i>
                                 <p>Typography</p>
-                            </a>
+                            </Link>
                         </li>
                         <li className="nav-item ">
                             <a className="nav-link" href="./icons.html">

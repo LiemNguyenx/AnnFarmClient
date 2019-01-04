@@ -1,38 +1,53 @@
 import React from 'react';
-import './../../../../../node_modules/draft-js/dist/Draft.css';
-import './../../../../../node_modules/draftail/dist/draftail.css'
+import { Editor, EditorState, RichUtils, BLOCK_TYPE } from 'draft-js';
 
-import { DraftailEditor, BLOCK_TYPE, INLINE_STYLE } from "./../../../../../node_modules/draftail/dist/draftail.cjs"
+const styleEditor = {
+    background: 'white',
+    width: '80%',
+    height: '1000px',
+    borderRadius: '3px'
+}
+class RichEditor extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = { editorState: EditorState.createEmpty() };
+        this.onChange = (editorState) => this.setState({ editorState });
+    }
+    handleKeyCommand(command, editorState) {
+        const newState = RichUtils.handleKeyCommand(editorState, command);
+        if (newState) {
+            this.onChange(newState);
+            // return 'handled';
+            console.log('handled');
+        } else {
+            console.log('not-handled');
 
-const initial = JSON.parse(sessionStorage.getItem("draftail:content"))
+        }
+        // return 'not-handled';
+    }
+    _onBoldClick() {
+        this.onChange(RichUtils.toggleInlineStyle(this.state.editorState, 'BOLD'));
+    }
+    _onItalicClick() {
+        this.onChange(RichUtils.toggleInlineStyle(this.state.editorState, 'ITALIC'));
+    }
+    render() {
+        return (
+            <div >
+                <div className="toolbar">
+                    <button onClick={this._onBoldClick.bind(this)}>Bold</button>
+                    <button onClick={this._onItalicClick.bind(this)}>Italic</button>
+                </div>
+                <div style={styleEditor}>
+                    <Editor
+                        editorState={this.state.editorState} onChange={this.onChange}
+                        handleKeyCommand={this.handleKeyCommand}
+                    />
+                </div>
 
-const onSave = (content) => {
-  console.log("saving", content)
-  sessionStorage.setItem("draftail:content", JSON.stringify(content))
+            </div>
+        );
+    }
 }
 
-class MyEditor extends React.Component {
-  render() {
-    return (
-      <DraftailEditor
-        rawContentState={initial || null}
-        onSave={onSave}
-
-        inlineStyles={[
-          { type: INLINE_STYLE.BOLD }, { type: INLINE_STYLE.ITALIC }, {type: INLINE_STYLE.UNDERLINE},
-          { type: INLINE_STYLE.DELETE }, { type: INLINE_STYLE.INSERT }, { type: INLINE_STYLE.MARK },
-          { type: INLINE_STYLE.KEYBOARD }, { type: INLINE_STYLE.QUOTATION }, { type: INLINE_STYLE.SAMPLE },
-          { type: INLINE_STYLE.SMALL }, { type: INLINE_STYLE.STRIKETHROUGH }, { type: INLINE_STYLE.SUBSCRIPT },
-        ]}
-        blockTypes={[
-          { type: BLOCK_TYPE.HEADER_ONE }, { type: BLOCK_TYPE.HEADER_TWO }, { type: BLOCK_TYPE.HEADER_THREE },
-          { type: BLOCK_TYPE.HEADER_FOUR }, { type: BLOCK_TYPE.HEADER_FIVE }, { type: BLOCK_TYPE.HEADER_SIX },
-          { type: BLOCK_TYPE.UNORDERED_LIST_ITEM }, { type: BLOCK_TYPE.BLOCKQUOTE },
-          { type: BLOCK_TYPE.ORDERED_LIST_ITEM }, { type: BLOCK_TYPE.UNSTYLED }
-        ]}
-      />
-    );
-  }
-}
-
-export default MyEditor;
+export default RichEditor;

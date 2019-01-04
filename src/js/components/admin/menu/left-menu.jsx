@@ -28,10 +28,10 @@ class LeftMenu extends Component {
                             </a>
                         </li>
                         <li className="nav-item ">
-                            <a className="nav-link" href="./tables.html">
+                            <Link className="nav-link" to="/table">
                                 <i className="material-icons">content_paste</i>
                                 <p>Table List</p>
-                            </a>
+                            </Link>
                         </li>
                         <li className="nav-item ">
                             <Link className="nav-link" to="/post">

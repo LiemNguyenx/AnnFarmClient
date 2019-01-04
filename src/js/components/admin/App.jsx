@@ -10,7 +10,8 @@ import TopNavbar from './menu/top-navbar.jsx';
 import Contents from './containers/contents.jsx';
 import './assets/css/material-dashboard.min.css'
 import './assets/css/meterial-icon.css'
-import MyEditor from './editor/draft.jsx'
+import MyEditor from './editor/draftail.jsx'
+import RichEditor from './editor/draft.jsx'
 import DashBoard from './dashboard/dashboard-index.jsx'
 const mapStateToProps = state => {
     return state
@@ -26,6 +27,7 @@ class App extends Component {
                     <div className="content">
                         <Route path="/dashboard" component={DashBoard} />
                         <Route path="/post" component={MyEditor} />
+                        <Route path="/table" component={RichEditor} />
                     </div>
                 </div>
             </div>

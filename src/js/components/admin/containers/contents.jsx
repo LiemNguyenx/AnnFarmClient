@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import MyEditor from '../editor/draft.jsx'
+import MyEditor from '../editor/draftail.jsx'
 // import CKEditor from '@ckeditor/ckeditor5-react';
 
 // import ClassicEditor from '@ckeditor/ckeditor5-editor-classic/src/classiceditor';
